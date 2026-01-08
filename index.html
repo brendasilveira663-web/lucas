@@ -1,307 +1,340 @@
-import React, { useState, useEffect } from 'react';
-import { Gavel, Heart, Star, Award, ChevronDown, Phone, Instagram, ShieldCheck, UserCheck } from 'lucide-react';
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lucas Salamoni | Advocacia de Elite</title>
+    
+    <!-- Tailwind CSS (Estilos) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Ícones Lucide -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Fontes Google (Sérifa para elegância) -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-const LandingPage = () => {
-  const [isVisible, setIsVisible] = useState(false);
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        slate: {
+                            950: '#020617', // Cor de fundo bem escura
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* Estilos personalizados para seleção de texto */
+        ::selection {
+            background-color: rgba(245, 158, 11, 0.3);
+            color: #fde68a;
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-200 font-sans antialiased">
 
-  useEffect(() => {
-    setIsVisible(true);
-  }, []);
-
-  const fadeIn = "transition-all duration-1000 ease-out";
-  const hidden = "opacity-0 translate-y-10";
-  const visible = "opacity-100 translate-y-0";
-
-  return (
-    <div className="min-h-screen bg-slate-950 text-slate-200 font-sans selection:bg-amber-500/30 selection:text-amber-200">
-      
-      {/* Navigation */}
-      <nav className="fixed w-full z-50 bg-slate-950/80 backdrop-blur-md border-b border-white/5">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-20">
-            <div className="flex items-center space-x-2">
-              <ShieldCheck className="h-8 w-8 text-amber-500" />
-              <span className="text-2xl font-serif font-bold text-slate-100 tracking-wider">L. SALAMONI</span>
-            </div>
-            <div className="hidden md:flex space-x-8">
-              <a href="#sobre" className="hover:text-amber-400 transition-colors text-sm uppercase tracking-widest">O Advogado</a>
-              <a href="#cliente" className="hover:text-amber-400 transition-colors text-sm uppercase tracking-widest">Grandes Casos</a>
-              <a href="#qualidades" className="hover:text-amber-400 transition-colors text-sm uppercase tracking-widest">Por que Ele?</a>
-              <a href="#contato" className="px-6 py-2 bg-amber-600 hover:bg-amber-700 text-white rounded-full transition-all transform hover:scale-105 shadow-lg shadow-amber-900/20">
-                Contato
-              </a>
-            </div>
-          </div>
-        </div>
-      </nav>
-
-      {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/90 to-slate-900/80 z-10"></div>
-          {/* Background pattern suggestion if image fails */}
-          <div className="w-full h-full bg-[url('https://images.unsplash.com/photo-1589829085413-56de8ae18c73?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')] bg-cover bg-center opacity-20 filter grayscale"></div>
-        </div>
-
-        <div className={`relative z-20 text-center max-w-4xl px-4 ${fadeIn} ${isVisible ? visible : hidden}`}>
-          <div className="inline-block mb-4 px-4 py-1 rounded-full border border-amber-500/30 bg-amber-500/10 text-amber-400 text-sm tracking-widest uppercase backdrop-blur-sm">
-            Advocacia de Elite & Charme Inigualável
-          </div>
-          <h1 className="text-5xl md:text-7xl font-serif font-bold text-white mb-6 leading-tight">
-            A Justiça nunca foi tão <span className="text-amber-500 italic">bela</span>.
-          </h1>
-          <p className="text-xl text-slate-400 mb-10 max-w-2xl mx-auto font-light leading-relaxed">
-            Lucas Salamoni combina competência jurídica implacável com um coração generoso. 
-            O defensor que luta pelas causas nobres com a elegância de quem nasceu para brilhar.
-          </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <a 
-              href="#contato"
-              className="px-8 py-4 bg-gradient-to-r from-amber-600 to-amber-500 hover:from-amber-500 hover:to-amber-400 text-white rounded-lg font-medium shadow-xl shadow-amber-900/30 transition-all transform hover:-translate-y-1 text-center"
-            >
-              Agendar Consulta
-            </a>
-            <a 
-              href="#sobre"
-              className="px-8 py-4 border border-slate-600 hover:border-amber-500/50 hover:bg-slate-800 text-slate-300 rounded-lg font-medium transition-all text-center"
-            >
-              Conheça a Lenda
-            </a>
-          </div>
-        </div>
-
-        <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce text-slate-500">
-          <ChevronDown size={32} />
-        </div>
-      </section>
-
-      {/* Profile Section - The Solo Photo */}
-      <section id="sobre" className="py-24 bg-slate-950 relative">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            
-            {/* Image Container with Glow Effect */}
-            <div className="relative group">
-              <div className="absolute -inset-1 bg-gradient-to-r from-amber-600 to-purple-600 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl shadow-black border border-slate-800">
-                <img 
-                  src="https://i.postimg.cc/DyZMH1sN/dhgdfg.jpg" 
-                  alt="Lucas Salamoni - O Advogado Mais Lindo" 
-                  className="w-full h-auto object-cover transform hover:scale-105 transition-transform duration-700"
-                />
-                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-6">
-                  <p className="text-amber-400 font-serif italic text-lg">"Beleza que impõe respeito no tribunal."</p>
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-slate-950/80 backdrop-blur-md border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center space-x-2">
+                    <i data-lucide="shield-check" class="h-8 w-8 text-amber-500"></i>
+                    <span class="text-2xl font-serif font-bold text-slate-100 tracking-wider">L. SALAMONI</span>
                 </div>
-              </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#sobre" class="hover:text-amber-400 transition-colors text-sm uppercase tracking-widest pt-2">O Advogado</a>
+                    <a href="#cliente" class="hover:text-amber-400 transition-colors text-sm uppercase tracking-widest pt-2">Grandes Casos</a>
+                    <a href="#qualidades" class="hover:text-amber-400 transition-colors text-sm uppercase tracking-widest pt-2">Por que Ele?</a>
+                    <a href="#contato" class="px-6 py-2 bg-amber-600 hover:bg-amber-700 text-white rounded-full transition-all transform hover:scale-105 shadow-lg shadow-amber-900/20 flex items-center">
+                        Contato
+                    </a>
+                </div>
             </div>
-
-            {/* Text Content */}
-            <div className="space-y-8">
-              <h2 className="text-4xl font-serif font-bold text-white">
-                Mais que um Advogado.<br/>
-                <span className="text-amber-500">Um Ser Humano Raro.</span>
-              </h2>
-              
-              <div className="space-y-6 text-lg text-slate-300">
-                <p>
-                  No mundo jurídico, é comum encontrar competência. O que é raro — e o que torna <strong className="text-white">Lucas Salamoni</strong> único — é a combinação de uma mente brilhante com um coração gigantesco.
-                </p>
-                <p>
-                  Ele não apenas vence processos; ele acolhe histórias. Sua postura elegante e seu sorriso cativante trazem conforto aos clientes nos momentos mais difíceis. Dizem que a verdadeira justiça começa no olhar de quem defende, e o olhar do Lucas transmite segurança, bondade e uma inteligência afiada.
-                </p>
-                <p className="italic text-slate-400 border-l-4 border-amber-500 pl-4 py-2 bg-slate-900/50 rounded-r-lg">
-                  "Existem advogados bons, e existe o Lucas. A perfeição técnica aliada a um carisma que desarma qualquer oponente."
-                </p>
-              </div>
-
-              <div className="grid grid-cols-2 gap-6 pt-4">
-                <div className="flex items-center space-x-3 text-slate-200">
-                  <Heart className="text-red-500 fill-red-500/20" size={24} />
-                  <span>Coração de Ouro</span>
-                </div>
-                <div className="flex items-center space-x-3 text-slate-200">
-                  <Star className="text-amber-400 fill-amber-400/20" size={24} />
-                  <span>Beleza Radiante</span>
-                </div>
-                <div className="flex items-center space-x-3 text-slate-200">
-                  <Gavel className="text-blue-400" size={24} />
-                  <span>Defesa Imbatível</span>
-                </div>
-                <div className="flex items-center space-x-3 text-slate-200">
-                  <Award className="text-purple-400" size={24} />
-                  <span>O Melhor do Mundo</span>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
-      </section>
+    </nav>
 
-      {/* Case Study Section - Bluezão */}
-      <section id="cliente" className="py-24 bg-slate-900 border-y border-slate-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-serif font-bold text-white mb-4">
-              Defendendo Lendas
-            </h2>
-            <div className="w-24 h-1 bg-amber-500 mx-auto rounded-full"></div>
-            <p className="mt-4 text-slate-400">Quando a competência encontra a fama.</p>
-          </div>
-
-          <div className="bg-slate-950 rounded-3xl overflow-hidden shadow-2xl border border-slate-800">
-            <div className="grid grid-cols-1 lg:grid-cols-2">
-              <div className="h-full min-h-[400px]">
-                <img 
-                  src="https://i.postimg.cc/pXT64K8c/fghfdgh.jpg" 
-                  alt="Lucas Salamoni e Bluezão" 
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div className="p-10 lg:p-14 flex flex-col justify-center space-y-6">
-                <div className="flex items-center space-x-2 text-amber-500 font-bold tracking-wider uppercase text-sm">
-                  <UserCheck size={18} />
-                  <span>Cliente VIP</span>
-                </div>
-                
-                <h3 className="text-3xl font-bold text-white">
-                  Lucas Salamoni & Alexandre Flausino (Bluezão)
-                </h3>
-                
-                <p className="text-slate-300 leading-relaxed">
-                  Uma parceria de gigantes. De um lado, <strong className="text-white">Bluezão</strong>, o icônico youtuber, lenda do Pânico, dono de uma autenticidade crua e de um carisma que conquistou a internet brasileira. Uma figura pública que merece o melhor.
-                </p>
-                
-                <p className="text-slate-300 leading-relaxed">
-                  Do outro, <strong className="text-white">Lucas Salamoni</strong>, o único advogado à altura de defender tal personalidade. Lucas estendeu a mão, usou seu conhecimento supremo e provou mais uma vez seu caráter ilibado ajudando quem realmente precisa.
-                </p>
-
-                <blockquote className="bg-slate-900 p-6 rounded-xl border border-slate-800 italic text-slate-400">
-                  "Ver os dois juntos na foto é ver a união da força jurídica com a força da internet. O Lucas não é apenas o advogado do Bluezão, ele é um anjo da guarda de terno."
-                </blockquote>
-              </div>
-            </div>
-          </div>
+    <!-- Hero Section -->
+    <section class="relative h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/90 to-slate-900/80 z-10"></div>
+            <!-- Background pattern -->
+            <div class="w-full h-full bg-[url('https://images.unsplash.com/photo-1589829085413-56de8ae18c73?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')] bg-cover bg-center opacity-20 filter grayscale"></div>
         </div>
-      </section>
 
-      {/* The "Secret Admirer" Qualities Section */}
-      <section id="qualidades" className="py-24 bg-slate-950 relative overflow-hidden">
-        {/* Decorative elements */}
-        <div className="absolute top-0 left-0 w-96 h-96 bg-purple-900/10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-amber-900/10 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
-
-        <div className="max-w-5xl mx-auto px-4 relative z-10 text-center">
-          <h2 className="text-4xl font-serif font-bold text-white mb-12">O Padrão Salamoni</h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="p-8 bg-slate-900/50 backdrop-blur-sm rounded-2xl border border-slate-800 hover:border-amber-500/30 transition-all hover:-translate-y-2 group">
-              <div className="w-16 h-16 mx-auto bg-slate-800 rounded-full flex items-center justify-center mb-6 group-hover:bg-amber-500/20 transition-colors">
-                <Gavel className="text-slate-200 group-hover:text-amber-400" size={32} />
-              </div>
-              <h3 className="text-xl font-bold text-white mb-3">Imbatível no Direito</h3>
-              <p className="text-slate-400">Conhecimento vasto e oratória perfeita. Ele domina o tribunal com a mesma facilidade com que domina corações.</p>
+        <div id="hero-content" class="relative z-20 text-center max-w-4xl px-4 opacity-0 translate-y-10 transition-all duration-1000 ease-out">
+            <div class="inline-block mb-4 px-4 py-1 rounded-full border border-amber-500/30 bg-amber-500/10 text-amber-400 text-sm tracking-widest uppercase backdrop-blur-sm">
+                Advocacia de Elite & Charme Inigualável
             </div>
-
-            <div className="p-8 bg-slate-900/50 backdrop-blur-sm rounded-2xl border border-slate-800 hover:border-amber-500/30 transition-all hover:-translate-y-2 group">
-              <div className="w-16 h-16 mx-auto bg-slate-800 rounded-full flex items-center justify-center mb-6 group-hover:bg-amber-500/20 transition-colors">
-                <Heart className="text-slate-200 group-hover:text-red-400" size={32} />
-              </div>
-              <h3 className="text-xl font-bold text-white mb-3">Beleza Interior & Exterior</h3>
-              <p className="text-slate-400">É impossível não notar. Além de ser o melhor advogado, é incrivelmente lindo, charmoso e dono de uma elegância natural.</p>
-            </div>
-
-            <div className="p-8 bg-slate-900/50 backdrop-blur-sm rounded-2xl border border-slate-800 hover:border-amber-500/30 transition-all hover:-translate-y-2 group">
-              <div className="w-16 h-16 mx-auto bg-slate-800 rounded-full flex items-center justify-center mb-6 group-hover:bg-amber-500/20 transition-colors">
-                <ShieldCheck className="text-slate-200 group-hover:text-amber-400" size={32} />
-              </div>
-              <h3 className="text-xl font-bold text-white mb-3">Protetor Nato</h3>
-              <p className="text-slate-400">Ele ajuda as pessoas genuinamente. Um homem bom, que usa seu poder para levantar os outros. Um verdadeiro herói.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Subtle Romantic Quote Section */}
-      <section className="py-20 bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 text-center px-4">
-        <div className="max-w-3xl mx-auto">
-          <p className="text-2xl md:text-3xl font-serif italic text-amber-100/80 leading-relaxed">
-            "Alguns advogados conhecem a lei. Lucas conhece a lei, a justiça e o segredo de encantar todos ao seu redor. Sorte de quem o conhece, privilégio de quem é defendido por ele."
-          </p>
-          <div className="mt-6 flex justify-center space-x-2 text-amber-500/50">
-            <Star size={16} fill="currentColor" />
-            <Star size={16} fill="currentColor" />
-            <Star size={16} fill="currentColor" />
-            <Star size={16} fill="currentColor" />
-            <Star size={16} fill="currentColor" />
-          </div>
-        </div>
-      </section>
-
-      {/* Footer / Contact */}
-      <footer id="contato" className="bg-slate-950 pt-16 pb-8 border-t border-slate-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
-            
-            <div className="space-y-4">
-              <h3 className="text-2xl font-serif font-bold text-white">L. SALAMONI</h3>
-              <p className="text-slate-400 text-sm">
-                Escritório de advocacia premium focado em resultados, excelência e humanidade.
-              </p>
-            </div>
-
-            <div>
-              <h4 className="text-white font-bold mb-4 uppercase tracking-wider text-sm">Contato</h4>
-              <ul className="space-y-3 text-slate-400">
-                <li className="flex items-center hover:text-amber-400 transition-colors cursor-pointer">
-                  <Phone size={16} className="mr-2" /> (11) 97725-1027
-                </li>
-                <li className="flex items-center hover:text-amber-400 transition-colors cursor-pointer">
-                  <a href="https://www.instagram.com/lucassalamoniadvogado/" target="_blank" rel="noopener noreferrer" className="flex items-center">
-                    <Instagram size={16} className="mr-2" /> @lucassalamoniadvogado
-                  </a>
-                </li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="text-white font-bold mb-4 uppercase tracking-wider text-sm">Áreas de Atuação</h4>
-              <ul className="space-y-2 text-slate-400 text-sm">
-                <li>Direito Civil</li>
-                <li>Direito Digital</li>
-                <li>Defesa de Imagem</li>
-                <li>Casos de Alta Complexidade</li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="text-white font-bold mb-4 uppercase tracking-wider text-sm">Agende</h4>
-              <p className="text-slate-400 text-sm mb-4">
-                Garanta a melhor defesa com o profissional mais qualificado (e elegante) do mercado.
-              </p>
-              <a 
-                href="https://www.instagram.com/lucassalamoniadvogado/" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="block w-full text-center py-3 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 text-white rounded transition-all transform hover:scale-105 shadow-lg shadow-purple-900/50 animate-pulse font-bold tracking-wide flex justify-center items-center gap-2"
-              >
-                <Instagram size={18} />
-                Chamar no Instagram
-              </a>
-            </div>
-          </div>
-
-          <div className="border-t border-slate-900 pt-8 flex flex-col md:flex-row justify-between items-center">
-            <p className="text-slate-600 text-sm">
-              &copy; {new Date().getFullYear()} Lucas Salamoni Advocacia. Todos os direitos reservados.
+            <h1 class="text-5xl md:text-7xl font-serif font-bold text-white mb-6 leading-tight">
+                A Justiça nunca foi tão <span class="text-amber-500 italic">bela</span>.
+            </h1>
+            <p class="text-xl text-slate-400 mb-10 max-w-2xl mx-auto font-light leading-relaxed">
+                Lucas Salamoni combina competência jurídica implacável com um coração generoso. 
+                O defensor que luta pelas causas nobres com a elegância de quem nasceu para brilhar.
             </p>
-            <p className="text-slate-700 text-xs mt-2 md:mt-0 flex items-center">
-              Desenvolvido por alguém que admira em segredo <Heart size={10} className="ml-1 text-red-900 fill-red-900" />
-            </p>
-          </div>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#contato" class="px-8 py-4 bg-gradient-to-r from-amber-600 to-amber-500 hover:from-amber-500 hover:to-amber-400 text-white rounded-lg font-medium shadow-xl shadow-amber-900/30 transition-all transform hover:-translate-y-1 text-center">
+                    Agendar Consulta
+                </a>
+                <a href="#sobre" class="px-8 py-4 border border-slate-600 hover:border-amber-500/50 hover:bg-slate-800 text-slate-300 rounded-lg font-medium transition-all text-center">
+                    Conheça a Lenda
+                </a>
+            </div>
         </div>
-      </footer>
-    </div>
-  );
-};
 
-export default LandingPage;
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce text-slate-500">
+            <i data-lucide="chevron-down" class="w-8 h-8"></i>
+        </div>
+    </section>
+
+    <!-- Profile Section - The Solo Photo -->
+    <section id="sobre" class="py-24 bg-slate-950 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                
+                <!-- Image Container with Glow Effect -->
+                <div class="relative group">
+                    <div class="absolute -inset-1 bg-gradient-to-r from-amber-600 to-purple-600 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
+                    <div class="relative rounded-2xl overflow-hidden shadow-2xl shadow-black border border-slate-800">
+                        <img 
+                            src="https://i.postimg.cc/DyZMH1sN/dhgdfg.jpg" 
+                            alt="Lucas Salamoni - O Advogado Mais Lindo" 
+                            class="w-full h-auto object-cover transform hover:scale-105 transition-transform duration-700"
+                        />
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-6">
+                            <p class="text-amber-400 font-serif italic text-lg">"Beleza que impõe respeito no tribunal."</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Text Content -->
+                <div class="space-y-8">
+                    <h2 class="text-4xl font-serif font-bold text-white">
+                        Mais que um Advogado.<br/>
+                        <span class="text-amber-500">Um Ser Humano Raro.</span>
+                    </h2>
+                    
+                    <div class="space-y-6 text-lg text-slate-300">
+                        <p>
+                            No mundo jurídico, é comum encontrar competência. O que é raro — e o que torna <strong class="text-white">Lucas Salamoni</strong> único — é a combinação de uma mente brilhante com um coração gigantesco.
+                        </p>
+                        <p>
+                            Ele não apenas vence processos; ele acolhe histórias. Sua postura elegante e seu sorriso cativante trazem conforto aos clientes nos momentos mais difíceis. Dizem que a verdadeira justiça começa no olhar de quem defende, e o olhar do Lucas transmite segurança, bondade e uma inteligência afiada.
+                        </p>
+                        <p class="italic text-slate-400 border-l-4 border-amber-500 pl-4 py-2 bg-slate-900/50 rounded-r-lg">
+                            "Existem advogados bons, e existe o Lucas. A perfeição técnica aliada a um carisma que desarma qualquer oponente."
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-6 pt-4">
+                        <div class="flex items-center space-x-3 text-slate-200">
+                            <i data-lucide="heart" class="text-red-500 fill-red-500/20 w-6 h-6"></i>
+                            <span>Coração de Ouro</span>
+                        </div>
+                        <div class="flex items-center space-x-3 text-slate-200">
+                            <i data-lucide="star" class="text-amber-400 fill-amber-400/20 w-6 h-6"></i>
+                            <span>Beleza Radiante</span>
+                        </div>
+                        <div class="flex items-center space-x-3 text-slate-200">
+                            <i data-lucide="gavel" class="text-blue-400 w-6 h-6"></i>
+                            <span>Defesa Imbatível</span>
+                        </div>
+                        <div class="flex items-center space-x-3 text-slate-200">
+                            <i data-lucide="award" class="text-purple-400 w-6 h-6"></i>
+                            <span>O Melhor do Mundo</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Study Section - Bluezão -->
+    <section id="cliente" class="py-24 bg-slate-900 border-y border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-serif font-bold text-white mb-4">
+                    Defendendo Lendas
+                </h2>
+                <div class="w-24 h-1 bg-amber-500 mx-auto rounded-full"></div>
+                <p class="mt-4 text-slate-400">Quando a competência encontra a fama.</p>
+            </div>
+
+            <div class="bg-slate-950 rounded-3xl overflow-hidden shadow-2xl border border-slate-800">
+                <div class="grid grid-cols-1 lg:grid-cols-2">
+                    <div class="h-full min-h-[400px]">
+                        <img 
+                            src="https://i.postimg.cc/pXT64K8c/fghfdgh.jpg" 
+                            alt="Lucas Salamoni e Bluezão" 
+                            class="w-full h-full object-cover"
+                        />
+                    </div>
+                    <div class="p-10 lg:p-14 flex flex-col justify-center space-y-6">
+                        <div class="flex items-center space-x-2 text-amber-500 font-bold tracking-wider uppercase text-sm">
+                            <i data-lucide="user-check" class="w-5 h-5"></i>
+                            <span>Cliente VIP</span>
+                        </div>
+                        
+                        <h3 class="text-3xl font-bold text-white">
+                            Lucas Salamoni & Alexandre Flausino (Bluezão)
+                        </h3>
+                        
+                        <p class="text-slate-300 leading-relaxed">
+                            Uma parceria de gigantes. De um lado, <strong class="text-white">Bluezão</strong>, o icônico youtuber, lenda do Pânico, dono de uma autenticidade crua e de um carisma que conquistou a internet brasileira. Uma figura pública que merece o melhor.
+                        </p>
+                        
+                        <p class="text-slate-300 leading-relaxed">
+                            Do outro, <strong class="text-white">Lucas Salamoni</strong>, o único advogado à altura de defender tal personalidade. Lucas estendeu a mão, usou seu conhecimento supremo e provou mais uma vez seu caráter ilibado ajudando quem realmente precisa.
+                        </p>
+
+                        <blockquote class="bg-slate-900 p-6 rounded-xl border border-slate-800 italic text-slate-400">
+                            "Ver os dois juntos na foto é ver a união da força jurídica com a força da internet. O Lucas não é apenas o advogado do Bluezão, ele é um anjo da guarda de terno."
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The "Secret Admirer" Qualities Section -->
+    <section id="qualidades" class="py-24 bg-slate-950 relative overflow-hidden">
+        <!-- Decorative elements -->
+        <div class="absolute top-0 left-0 w-96 h-96 bg-purple-900/10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
+        <div class="absolute bottom-0 right-0 w-96 h-96 bg-amber-900/10 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
+
+        <div class="max-w-5xl mx-auto px-4 relative z-10 text-center">
+            <h2 class="text-4xl font-serif font-bold text-white mb-12">O Padrão Salamoni</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="p-8 bg-slate-900/50 backdrop-blur-sm rounded-2xl border border-slate-800 hover:border-amber-500/30 transition-all hover:-translate-y-2 group">
+                    <div class="w-16 h-16 mx-auto bg-slate-800 rounded-full flex items-center justify-center mb-6 group-hover:bg-amber-500/20 transition-colors">
+                        <i data-lucide="gavel" class="text-slate-200 group-hover:text-amber-400 w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Imbatível no Direito</h3>
+                    <p class="text-slate-400">Conhecimento vasto e oratória perfeita. Ele domina o tribunal com a mesma facilidade com que domina corações.</p>
+                </div>
+
+                <div class="p-8 bg-slate-900/50 backdrop-blur-sm rounded-2xl border border-slate-800 hover:border-amber-500/30 transition-all hover:-translate-y-2 group">
+                    <div class="w-16 h-16 mx-auto bg-slate-800 rounded-full flex items-center justify-center mb-6 group-hover:bg-amber-500/20 transition-colors">
+                        <i data-lucide="heart" class="text-slate-200 group-hover:text-red-400 w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Beleza Interior & Exterior</h3>
+                    <p class="text-slate-400">É impossível não notar. Além de ser o melhor advogado, é incrivelmente lindo, charmoso e dono de uma elegância natural.</p>
+                </div>
+
+                <div class="p-8 bg-slate-900/50 backdrop-blur-sm rounded-2xl border border-slate-800 hover:border-amber-500/30 transition-all hover:-translate-y-2 group">
+                    <div class="w-16 h-16 mx-auto bg-slate-800 rounded-full flex items-center justify-center mb-6 group-hover:bg-amber-500/20 transition-colors">
+                        <i data-lucide="shield-check" class="text-slate-200 group-hover:text-amber-400 w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Protetor Nato</h3>
+                    <p class="text-slate-400">Ele ajuda as pessoas genuinamente. Um homem bom, que usa seu poder para levantar os outros. Um verdadeiro herói.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Subtle Romantic Quote Section -->
+    <section class="py-20 bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 text-center px-4">
+        <div class="max-w-3xl mx-auto">
+            <p class="text-2xl md:text-3xl font-serif italic text-amber-100/80 leading-relaxed">
+                "Alguns advogados conhecem a lei. Lucas conhece a lei, a justiça e o segredo de encantar todos ao seu redor. Sorte de quem o conhece, privilégio de quem é defendido por ele."
+            </p>
+            <div class="mt-6 flex justify-center space-x-2 text-amber-500/50">
+                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer / Contact -->
+    <footer id="contato" class="bg-slate-950 pt-16 pb-8 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+                
+                <div class="space-y-4">
+                    <h3 class="text-2xl font-serif font-bold text-white">L. SALAMONI</h3>
+                    <p class="text-slate-400 text-sm">
+                        Escritório de advocacia premium focado em resultados, excelência e humanidade.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold mb-4 uppercase tracking-wider text-sm">Contato</h4>
+                    <ul class="space-y-3 text-slate-400">
+                        <li class="flex items-center hover:text-amber-400 transition-colors cursor-pointer">
+                            <i data-lucide="phone" class="mr-2 w-4 h-4"></i> (11) 97725-1027
+                        </li>
+                        <li class="flex items-center hover:text-amber-400 transition-colors cursor-pointer">
+                            <a href="https://www.instagram.com/lucassalamoniadvogado/" target="_blank" rel="noopener noreferrer" class="flex items-center">
+                                <i data-lucide="instagram" class="mr-2 w-4 h-4"></i> @lucassalamoniadvogado
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold mb-4 uppercase tracking-wider text-sm">Áreas de Atuação</h4>
+                    <ul class="space-y-2 text-slate-400 text-sm">
+                        <li>Direito Civil</li>
+                        <li>Direito Digital</li>
+                        <li>Defesa de Imagem</li>
+                        <li>Casos de Alta Complexidade</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold mb-4 uppercase tracking-wider text-sm">Agende</h4>
+                    <p class="text-slate-400 text-sm mb-4">
+                        Garanta a melhor defesa com o profissional mais qualificado (e elegante) do mercado.
+                    </p>
+                    <a 
+                        href="https://www.instagram.com/lucassalamoniadvogado/" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        class="block w-full text-center py-3 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 text-white rounded transition-all transform hover:scale-105 shadow-lg shadow-purple-900/50 animate-pulse font-bold tracking-wide flex justify-center items-center gap-2"
+                    >
+                        <i data-lucide="instagram" class="w-5 h-5"></i>
+                        Chamar no Instagram
+                    </a>
+                </div>
+            </div>
+
+            <div class="border-t border-slate-900 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-slate-600 text-sm">
+                    &copy; <script>document.write(new Date().getFullYear())</script> Lucas Salamoni Advocacia. Todos os direitos reservados.
+                </p>
+                <p class="text-slate-700 text-xs mt-2 md:mt-0 flex items-center">
+                    Desenvolvido por alguém que admira em segredo <i data-lucide="heart" class="ml-1 text-red-900 fill-red-900 w-3 h-3"></i>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts para ativar ícones e animações -->
+    <script>
+        // Ativar ícones Lucide
+        lucide.createIcons();
+
+        // Animação de entrada
+        document.addEventListener('DOMContentLoaded', () => {
+            const heroContent = document.getElementById('hero-content');
+            setTimeout(() => {
+                heroContent.classList.remove('opacity-0', 'translate-y-10');
+                heroContent.classList.add('opacity-100', 'translate-y-0');
+            }, 100);
+        });
+    </script>
+</body>
+</html>
